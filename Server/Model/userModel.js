@@ -27,8 +27,33 @@ const userSchema = new mongoose.Schema({
     age: {
         type: Date,
         required: true,
-    },}
-    ,{timestamps:true
+    },
+        isVerified: {
+        type: Boolean,
+        default: false,
+        },
+
+        verifyEmailToken: {
+        type: String,
+        default: null,
+        },
+
+        verifyEmailExpires: {
+        type: Date,
+        default: null,
+        },
+    resetPasswordToken:{
+        type: String,
+        default: null
+    },
+    resetPasswordExpires:{
+        type: Date,
+        default: null,
+    }
+
+}
+    ,{
+        timestamps:true
 });
 
 const userModel = mongoose.model("User", userSchema);
